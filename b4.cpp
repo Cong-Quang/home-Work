@@ -38,7 +38,7 @@ void timKiemContact() {
     printf("Nhap ten, so dien thoai hoac email can tim: ");
     scanf("%s", search);
 
-    printf("Ket qua tim kiem:\n");
+    printf("                    Ket qua tim kiem\n");
     for (int i = 0; i < soLuongContacts; i++) {
         if (strstr(danhBa[i].hoVaTen, search) || strstr(danhBa[i].phoneNumber, search) || strstr(danhBa[i].email, search)) {
             printf("Ho va ten: %s\n", danhBa[i].hoVaTen);
@@ -46,6 +46,7 @@ void timKiemContact() {
             printf("Email: %s\n", danhBa[i].email);
         }
     }
+    printf("                    Ket qua tim kiem\n");
 }
 
 void xoaContact() {
