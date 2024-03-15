@@ -91,19 +91,38 @@ void sapXepContact() {
     qsort(danhBa, soLuongContacts, sizeof(Contact), compare);
     printf("Danh ba da duoc sap xep theo ten.\n");
 }
-
+void showContact(){
+    printf("|STT|  |Ho va Ten|      |SDT|        |Email|\n");
+    printf("==============================================\n");
+    for (int i = 0; i < soLuongContacts; i++) {
+        printf("[%2d] %20s %10s %20s\n",i, danhBa[i].hoVaTen,danhBa[i].phoneNumber,danhBa[i].email);
+    }
+}
+void addData() {
+    danhBa[soLuongContacts++] = (Contact){"Nguyen Cong Quang", "0796659071", "wtvvnjk@gmail.com"};
+    danhBa[soLuongContacts++] = (Contact){"Tran Thi Lan", "0987654321", "lantran@example.com"};
+    danhBa[soLuongContacts++] = (Contact){"Le Van An", "0123456789", "anlevan@example.com"};
+    danhBa[soLuongContacts++] = (Contact){"Hoang Thi Mai", "0912345678", "hoang@example.com"};
+    danhBa[soLuongContacts++] = (Contact){"Pham Van Cuong", "0981234567", "cuong@example.com"};
+    danhBa[soLuongContacts++] = (Contact){"Tran Minh Hieu", "0976543210", "hieutran@example.com"};
+    danhBa[soLuongContacts++] = (Contact){"Nguyen Thi Hien", "0909876543", "tnguyen@example.com"};
+    danhBa[soLuongContacts++] = (Contact){"Le Quang Huy", "0932109876", "huyle@example.com"};
+    danhBa[soLuongContacts++] = (Contact){"Vu Thi Thu", "0965432109", "thuvu@example.com"};
+    danhBa[soLuongContacts++] = (Contact){"Do Van Phuc", "0943210987", "phucdo@example.com"};
+}
 void hienThiMenu() {
     printf("\nDanh ba dien thoai\n");
     printf("1. Them contact\n");
     printf("2. Tim kiem contact\n");
     printf("3. Xoa contact\n");
     printf("4. Sap xep danh ba theo ten\n");
-    printf("5. Thoat\n");
+    printf("5. Hien Thi Danh Ba\n");
+    printf("6. Thoat\n");
     printf("Lua chon cua ban: ");
 }
 
 int main() {
-    int luaChon;
+    int luaChon; addData();
     do {
         hienThiMenu();
         scanf("%d", &luaChon);
@@ -122,12 +141,15 @@ int main() {
                 sapXepContact();
                 break;
             case 5:
-                printf("Cam on ban da su dung!\n");
+                showContact();
+                break;
+            case 6:
+                printf("Cam on ban da su dung!\n"); 
                 break;
             default:
                 printf("Lua chon khong hop le. Vui long chon lai.\n");
         }
-    } while (luaChon != 5);
+    } while (luaChon != 6);
 
     return 0;
 }
